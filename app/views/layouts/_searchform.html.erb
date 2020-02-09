@@ -1,0 +1,5 @@
+<%= form_with url: search_path, method: :get, local: true do |f| %>
+  <%= f.text_field :word, placeholder: "検索ワードを入力" %>
+  <%= f.select :genre, [["user", "user"], ["book", "book"]] %>
+  <%= f.submit "検索" %>
+<% end %>

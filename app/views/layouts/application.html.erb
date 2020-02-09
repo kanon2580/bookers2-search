@@ -38,12 +38,18 @@
     </header>
     <!--ヘッダーの記述-->
 
-    <div class="container">
-      <p id="notice"><%= notice %></p> <!--デバイスでnotice設定されているので呼び出してるだけ-->
-      <p class="alert"><%= alert %></p>
-    </div>
-
     <main>
+      <!--deviseのメッセージ-->
+      <p id="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+
+      <!--検索フォーム-->
+      <% if user_signed_in? %>
+        <div class="container">
+          <%= render 'layouts/searchform' %>
+        </div>
+      <% end %>
+
       <div class="container">
         <%= yield %>
       </div>
