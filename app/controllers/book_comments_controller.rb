@@ -11,8 +11,7 @@ class BookCommentsController < ApplicationController
   end
 
   def destroy
-    book = Book.find(params[:book_id])
-    comment = current_user.book_comments.find_by(book_id: book.id)
+    comment = BookComment.find(params[:id])
     comment.destroy
     redirect_back(fallback_location: books_path)
   end
@@ -23,7 +22,7 @@ class BookCommentsController < ApplicationController
   end
 
    def baria_user
-    comment = BookComment.find(params[:comment_id])
+    comment = BookComment.find(params[:id])
   	unless comment.user_id == current_user.id
   		redirect_to user_path(current_user)
   	end
